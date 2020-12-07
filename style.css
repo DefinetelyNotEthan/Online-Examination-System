@@ -139,6 +139,7 @@ button{
 }
 
 .loginButton{
+    
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.63),
                 -3px -3px 5px rgba(255, 255, 255, 0.808);
 }
@@ -268,4 +269,10 @@ Button:focus{
     transform: translateX(20%);
 }
 
+.Error{
+    font-size: 5px;
+    background: #52796F;
+    color: #fff;
+    z-index: 100;
+}
 
