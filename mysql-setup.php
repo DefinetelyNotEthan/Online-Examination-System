@@ -55,9 +55,9 @@ $dropExamTable = "DROP TABLE IF EXISTS exam";
 
 $createExamTable = "CREATE TABLE exam (
 	userID int NOT NULL,
-	examID int NOT NULL,
-	examName varchar(10) NOT NULL,
- 	examDate varchar(10) NOT NULL,
+	examID varchar(64) NOT NULL,
+	examName varchar(64) NOT NULL,
+ 	examDate varchar(64) NOT NULL,
 	startTime varchar(64) NOT NULL,
   	endTime varchar(64) NOT NULL,
   	qNum int NOT NULL,
@@ -68,44 +68,44 @@ $createExamTable = "CREATE TABLE exam (
  ) ENGINE=MyISAM  DEFAULT CHARSET='latin1'";
 
 $addExamRecords ="REPLACE INTO exam (userID, examID, examName, examDate, startTime, endTime, qNum) VALUES
-(67890, 151220201001, 'EIE 1003 Midterm', '15/12/2020', '12:00', '13:00','10');";
+(67890, '151220201001', 'EIE 1001 Midterm', '15/12/2020', '12:00', '13:00','10');";
 
 $dropQuestionTable = "DROP TABLE IF EXISTS question";
 
 $createQuestionTable = "CREATE TABLE question (
 	questionNum int NOT NULL,
-	examID int NOT NULL,
+	examID varchar(64) NOT NULL,
 	Type varchar(10) NOT NULL,
- 	question varchar(64) NOT NULL,
-	answer varchar(64) NOT NULL,
+ 	question varchar(164) NOT NULL,
+	answer varchar(164) NOT NULL,
   	points int NOT NULL,
-  	option1 varchar(64),
-  	option2 varchar(64),
-  	option3 varchar(64),
-  	option4 varchar(64),
+  	option1 varchar(164),
+  	option2 varchar(164),
+  	option3 varchar(164),
+  	option4 varchar(164),
   	PRIMARY KEY (questionNum, examID),
   	FOREIGN KEY (examID)
   		REFERENCES exam(examID)
  ) ENGINE=MyISAM  DEFAULT CHARSET='latin1'";
 
 $addQuestionRecords ="REPLACE INTO question (questionNum, examID, Type, question, answer, points, option1, option2, option3, option4) VALUES
-(1, 151220201001, 'Multiple Choice', '1+1', '2', '10','1','2','3','4'),
-(2, 151220201001, 'Multiple Choice', '1+2', '3', '10','1','2','3','4'),
-(3, 151220201001, 'Multiple Choice', '1+3', '4', '10','1','2','3','4'),
-(4, 151220201001, 'Multiple Choice', '2+2', '4', '10','1','2','3','4'),
-(5, 151220201001, 'Multiple Choice', '10+10', '20', '10','10','20','30','40'),
-(6, 151220201001, 'Multiple Choice', '10+20', '30', '10','10','20','30','40'),
-(7, 151220201001, 'Multiple Choice', '10+30', '40', '10','10','20','30','40'),
-(8, 151220201001, 'Multiple Choice', '20+20', '40', '10','10','20','30','40'),
-(9, 151220201001, 'T/F', 'Eddie is handsome?', 'true', '10','true','false','',''),
-(10, 151220201001, 'T/F', 'Eddie is not handsome?', 'false', '10','true','false','','')
+(1, '151220201001', 'Multiple Choice', '1+1', '2', '10','1','2','3','4'),
+(2, '151220201001', 'Multiple Choice', '1+2', '3', '10','1','2','3','4'),
+(3, '151220201001', 'Multiple Choice', '1+3', '4', '10','1','2','3','4'),
+(4, '151220201001', 'Multiple Choice', '2+2', '4', '10','1','2','3','4'),
+(5, '151220201001', 'Multiple Choice', '10+10', '20', '10','10','20','30','40'),
+(6, '151220201001', 'Multiple Choice', '10+20', '30', '10','10','20','30','40'),
+(7, '151220201001', 'Multiple Choice', '10+30', '40', '10','10','20','30','40'),
+(8, '151220201001', 'Multiple Choice', '20+20', '40', '10','10','20','30','40'),
+(9, '151220201001', 'T/F', 'Eddie is handsome?', 'true', '10','true','false','',''),
+(10, '151220201001', 'T/F', 'Eddie is not handsome?', 'false', '10','true','false','','')
 ;";
 
 $dropAnswerTable = "DROP TABLE IF EXISTS answer";
 
 $createAnswerTable = "CREATE TABLE answer (
 	questionNum int NOT NULL,
-	examID int NOT NULL,
+	examID varchar(64) NOT NULL,
 	userID int NOT NULL,
   	userAnswer varchar(64),
   	PRIMARY KEY (questionNum, examID, userID),
