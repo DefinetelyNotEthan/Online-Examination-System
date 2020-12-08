@@ -32,11 +32,14 @@ if (isset($_POST['loginID']) && isset($_POST['FN']) && isset($_POST['LN'])
         $role = "admin";
     }
 
-    if($GEN=="M"){
-        $GEN = "Male";
-    }else{
-        $GEN = "Female";
+    if($loginID>=10000 && $loginID<50000){
+        if($GEN=="M"){
+            $GEN = "Male";
+        }else{
+            $GEN = "Female";
+        }
     }
+    
     
     /*
     echo $loginID;
