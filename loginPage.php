@@ -9,24 +9,25 @@
     </head>
     
     <body>
-      
+       
         <div class="container" id="container">
              
             <div class="form-container sign-up-container">
-                   <form action="#">
-                    <h1 style="position:absolute;top:25px;">CREATE ACCOUNT</h1>
-                    <div style="height:15px;"><br></div>
-                    <input type="text" placeholder="TEACHER OR STUDENT" class="textboxSignUp" />
-                    <input type="text" placeholder="LOGIN ID" class="textboxSignUp" />
-                    <input type="text" placeholder="NICKNAME" class="textboxSignUp" />
-                    <input type="email" placeholder="EMAIL" class="textboxSignUp" />
-                    <input type="password" placeholder="PASSWORD" class="textboxSignUp"/>
-                    <input type="text" placeholder="COURSE (FOR TEACHER)" class="textboxSignUp" />
-                    <input type="text" placeholder="GENDER (FOR STUDENT)" class="textboxSignUp" />
-                    <input type="text" placeholder="BIRTHDAY (FOR STUDENT)" class="textboxSignUp" />
-                    <input type="text" placeholder="PROFILE PIC URL" class="textboxSignUp" />
+                   <form action="signup-check.php" method="POST">
+                   
+                    <h1 style="position:absolute;top:15px;font-size:25px;">CREATE ACCOUNT</h1>
+                    <div style="height:0px;"><br></div>
+                    <input type="text" placeholder="LOGIN ID" class="textboxSignUp" id="loginID" name="loginID"/>
+                    <input type="text" placeholder="FIRSTNAME" class="textboxSignUp" id="FN" name="FN" />
+                    <input type="text" placeholder="LASTNAME" class="textboxSignUp" id="LN" name="LN"/>
+                    <input type="text" placeholder="NICKNAME" class="textboxSignUp" id="NN" name="NN"/>
+                    <input type="email" placeholder="EMAIL" class="textboxSignUp" id="EM" name="EM"/>
+                    <input type="password" placeholder="PASSWORD" class="textboxSignUp" id="PW" name="PW"/>
+                    <input type="text" placeholder="COURSE (FOR TEACHER)" class="textboxSignUp" id="COU" name="COU"/>
+                    <input type="text" placeholder="GENDER M/F (FOR STUDENT)" class="textboxSignUp" id="GEN" name="GEN"/>
+                    <input type="text" placeholder="BIRTHDAY (FOR STUDENT)" class="textboxSignUp" id="BD" name="BD"/>
                     <div style="height:10px;"></div>
-                    <button class="CreateButton">CREATE</button>
+                    <button type="submit" class="CreateButton" onclick="return submitForm()" >CREATE</button>
                     
                     <div class="box-3"></div>
                    </form>     
@@ -76,6 +77,10 @@
         </div>
 
         <script src="main.js"></script>
+        <script src="signup-validate.js"></script>
+        
+
+        
     </body>
 
 </html>

@@ -31,7 +31,7 @@ h1{
 .textboxSignUp{
     outline:none;
     z-index: 1;
-    height:10px;
+    height:3px;
     border-radius: 5px;
     box-shadow: inset 2px 2px 2px rgba(73, 73, 73, 0.685),
                 inset -2px -2px 2px rgb(255, 255, 255);
@@ -91,8 +91,8 @@ p{
 
 .box-3{
     position: absolute;
-    top:20px;
-    bottom:20px;
+    top:10px;
+    bottom:10px;
     left:35px;
     right:35px;
     border-radius: 40px;
@@ -146,11 +146,9 @@ button{
 
 .CreateButton{
     position: absolute;
-    bottom:30px;
-    height: 25px;
+    bottom:20px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.63),
                 -3px -3px 5px rgba(255, 255, 255, 0.808);
-    font-size: 6px;
     text-align: center; 
     line-height: 0px;
     
@@ -270,9 +268,16 @@ Button:focus{
 }
 
 .Error{
-    font-size: 5px;
-    background: #52796F;
-    color: #fff;
+    position:absolute;
+    font-size:15px;
+    top:377px;
+    font-weight: bold;
+    background:#CAD2C5;
+    border:3px;
+    border-style: inset;
+    color: #324641;
+    padding: 10px;
+    border-radius: 20px;
     z-index: 100;
 }
 
