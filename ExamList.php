@@ -29,6 +29,6 @@
   		<a class = "sideMenu" href="CheckExam.php">Check Exam</a>
   		<a class = "sideMenu" href="ViewResult.php">View Result</a>
  </div>
-
+<?php include 'footer.php';?>
 </body> 
 </html>

@@ -33,7 +33,7 @@ if (isset($_POST['userID']) && isset($_POST['password'])) {
                      $_SESSION['firstName'] = $row['firstName'];
                      $_SESSION['lastName'] = $row['lastName'];
                      echo $_SESSION['firstName'];
-                     header("Location: TestLogIn.php");
+                     header("Location: Dashboard.php");
                      exit();
                      
                  }

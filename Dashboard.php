@@ -1,3 +1,6 @@
+
+<?php include 'header.php';?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +20,7 @@
 
 </head>
 <body>
-<?php include 'header.php';?>
+
 
 <!-- Left Sidebar -->
 <div class ="sidenav">
@@ -30,5 +33,10 @@
   		<a class = "sideMenu" href="ViewResult.php">View Result</a>
  </div>
 
+
+<?php include 'footer.php';?>
 </body> 
+
+
 </html>
+

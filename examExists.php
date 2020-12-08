@@ -5,11 +5,7 @@
 	$q =$_GET['q'];
 
 	// Connect to db
-	include 'mysqlconnect.php';
-	$connect = mysqli_connect($server, $user, $pw, "exam_platform");
-	if(!$connect) {
-		die("Connection failed: " . mysqli_connect_error());
-	}
+	include 'connect_database.php';
 
 	// Find matching id
 	$userQuery = "SELECT examID FROM exam WHERE examID = $q";
