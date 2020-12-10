@@ -41,7 +41,7 @@
 	<div class="contbox">
 		<h2><b>Exam details</b></h2>
 		<div class = "qForm">
-		<form action = "TeacherMakeExamQ.php" method = "post" id = "examDetails">	
+		<form action = "addExam.php" method = "post" id = "examDetails">	
 			<table style="width: 80%">
 				<colgroup>
 		       		<col span="1" style="width: 15%;">
@@ -85,6 +85,5 @@
 	</div>
 
 	</div>
-<?php include 'footer.php';?>
 </body> 
 </html>

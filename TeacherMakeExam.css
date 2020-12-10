@@ -10,7 +10,7 @@
 }
 
 .qForm{	
-	padding: 10px 20px;
+	padding: 10px 20px 10px 20px;
 	font-size: 18px;
 	font-weight: bold;
 }
@@ -34,9 +34,4 @@
 	border-bottom: solid;
 	border-color: white;
 	padding: 8px;
-}
-
-#previousNumber, #nextNumber{
-	margin-left: 20px;
-	font-size: 18px;
 }

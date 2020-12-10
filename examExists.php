@@ -1,8 +1,9 @@
 		
 
 <?php 
-
+	session_start();
 	$q =$_GET['q'];
+	$_SESSION['examID'] = $q;
 
 	// Connect to db
 	include 'connect_database.php';

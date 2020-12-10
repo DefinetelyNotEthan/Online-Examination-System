@@ -5,16 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-		<script type="text/javascript">
-		
-		function qType(){
-		var str = document.getElementById("Qtype").value;
-		var url = "QuestionType.php";
-		$.post(url,{contentVar:str},function(data){
-			$("#options").html(data).show();
-			});
-		}
-	</script>
+	<script src="addQuestion.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -30,24 +21,9 @@
 
 </head>
 <body>
-
-<?php
-	// Connect to db
-	//include 'mysqlconnect.php';
-	//$connect = mysqli_connect($server, $user, $pw, "exam_platform");
-	//if(!$connect) {
-	//	die("Connection failed: " . mysqli_connect_error());
-	//}
-
-	//$sql1 = "INSERT INTO personnel (userID, examID, examName, examDate, startTime, endTime, qNum) VALUES ('$ID', '$FName', '$LName', '$title','$hWage')";
-	//$add1 = mysqli_query($connect, $sql1);
-
-	//mysqli_close($connect); 
-?>
-
-<!-- Page Header -->
-
 <?php include 'header.php';?>
+
+
 <!-- Left Sidebar -->
 <div class ="sidenav">
 	<a href="#"><img src="polyuLogo.png" alt= "polyulogo" class="rounded-circle" id="polyulogo"> </a>
@@ -58,12 +34,14 @@
   		<a class = "sideMenu" href="CheckExam.php">Check Exam</a>
   		<a class = "sideMenu" href="ViewResult.php">View Result</a>
  </div>
+
  <div class = "content">
 <h2><b>Add Questions</b></h2>
 
 		<div class = "QuestionBox">
-			<div id="qNum"><h5> Question 1</h5> </div>
-			<div class = "qForm">
+		<?php echo "<div><h5 id=\"qNum\"> Question ".$_SESSION['qNum']."</h5> </div>" ?>
+		<form action = "addQuestion.php" method = "post" id="addQForm">
+		<div class = "qForm">
 			<p>Question</p>
 			
 			<input type="text" id="question" name="question" style="width: 95%;"><br>
@@ -111,11 +89,14 @@
 				</select>
 			</div>
 			<br>
-			<button id = "previousNumber" type="button" class="btn btn-info btn-large" onclick="PrevQ()">Previous Number</button>
-			<button id = "nextNumber" type="button" class="btn btn-info btn-large" onclick="addQ()">Next Number</button>
+			<input type="button" name="nextNumber" type="button" class="btn btn-info btn-large" onclick="errorCheck()" value ="Next Number" >
+			<a href="Dashboard.php" class="btn btn-success btn-large " style="margin-left:10px;" role="button">Complete Exam</a>
+			</form>
+			<form action = "prevQuestion.php" method = "post" id="prevQForm" style="margin-top: 10px;">
+				<input type="button" type="button" class="btn btn-info btn-large" onclick="prevQ()" value ="Previous Number">
+			</form>
 			</div>
 		</div>
 	</div>
-	<?php include 'footer.php';?>
 	</body> 
 </html>
