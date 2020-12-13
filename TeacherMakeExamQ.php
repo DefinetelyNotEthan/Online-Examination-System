@@ -49,7 +49,7 @@
 		<tr> <td>
 			<label for="Qtype">Question Type:</label>
 				<select name="Qtype" id="Qtype" onchange="qType()">
-		 			 <option value="MCQ">Multiple Choice</option>
+		 			 <option value="Multiple Choice">Multiple Choice</option>
 		 			 <option value="T/F">True or False</option>
 		 			 <option value="short">Short Answer</option>
 				</select> </td>

@@ -12,7 +12,7 @@
 	$question = $_POST["question"];
 	$answer = $_POST["correctAns"];
 	$points = $_POST["marks"];
-	if($Type=="MCQ"){
+	if($Type=="Multiple Choice"){
 		$option1 = $_POST["optionA"];
 		$option2 = $_POST["optionB"];
 		$option3 = $_POST["optionC"];

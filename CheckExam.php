@@ -37,6 +37,37 @@
 
 <div class = "content">
   <h1 class="thicker">Evaluate Exams' Result</h1>
+  <div class = "QuestionBox">
+    <h3>Unchecked Exam List</h3>
+   <div class = "qForm">
+   <?php
+
+        include "connect_database.php";
+        $userID = $_SESSION['userID'];
+        $userQuery= "SELECT * FROM exam WHERE userID = $userID and checked = 'NO'";
+
+            $result = mysqli_query($connect, $userQuery);
+              if (!$result) {
+            die("Could not successfully run query.");
+            }
+              if (mysqli_num_rows($result) == 0) {
+            print "You dont have any exam";
+            }
+
+            else { 
+            print "<table id = \"examListTbl\" border='1'>";
+            print "<tr><th>Exam ID</th><th>Exam Name</th><th>Exam Date</th><th>Start Time</th><th>End Time</th><th>Total Question</th></tr>";
+            while( $row = mysqli_fetch_assoc($result) ){
+              print "<tr><td>". $row['examID']. "</td><td>" .$row['examName']. "</td><td>" . $row['examDate'] . "</td><td>" . $row['startTime']. "</td><td>" .$row['endTime']. "</td><td>" .
+              $row['qNum']."</td></tr>";    
+            }
+            print "</table>";       
+          }
+
+            mysqli_close($connect);   // close the connection
+      ?>
+    </div>
+  </div>
     <div class = "QuestionBox">
       <h3>Check an Exam</h3>
       <div class = "qForm">

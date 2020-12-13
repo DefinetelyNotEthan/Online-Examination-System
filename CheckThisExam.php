@@ -55,6 +55,7 @@
             }
 
             else { 
+            print "<p>Exam successfully checked.</p>";
             print "<table id = \"examGradeTbl\" border='1'>";
             print "<tr><th>UserID</th><th>Student Name</th><th>Grade</th></tr>";
             while( $row3 = mysqli_fetch_assoc($result3) ){

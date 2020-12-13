@@ -67,14 +67,15 @@ $createExamTable = "CREATE TABLE exam (
  ) ENGINE=MyISAM  DEFAULT CHARSET='latin1'";
 
 $addExamRecords ="REPLACE INTO exam (userID, examID, examName, examDate, startTime, endTime, qNum, checked) VALUES
-(67890, '151220201001', 'EIE 1001 Midterm', '2020-12-15', '12:00', '13:00','10','NO');";
+(67890, '151220201001', 'EIE 1001 Midterm', '2020-12-15', '12:00:00', '13:00:00','10','NO'),
+(67890, '151220201002', 'EIE 1002 Midterm', '2020-12-13', '12:00:00', '13:00:00','10','NO');";
 
 $dropQuestionTable = "DROP TABLE IF EXISTS question";
 
 $createQuestionTable = "CREATE TABLE question (
 	questionNum int NOT NULL,
 	examID varchar(64) NOT NULL,
-	Type varchar(10) NOT NULL,
+	Type varchar(64) NOT NULL,
  	question varchar(164) NOT NULL,
 	answer varchar(164) NOT NULL,
   	points int NOT NULL,
@@ -82,23 +83,24 @@ $createQuestionTable = "CREATE TABLE question (
   	option2 varchar(164),
   	option3 varchar(164),
   	option4 varchar(164),
+  	result varchar(10),
   	CONSTRAINT CompKey_questionNum_examID PRIMARY KEY (questionNum, examID),
   	FOREIGN KEY (examID)
   		REFERENCES exam(examID)
  ) ENGINE=MyISAM  DEFAULT CHARSET='latin1'";
 
-$addQuestionRecords ="REPLACE INTO question (questionNum, examID, Type, question, answer, points, option1, option2, option3, option4) VALUES
-(1, '151220201001', 'Multiple Choice', '1+1', 'B', '10','1','2','3','4'),
-(2, '151220201001', 'Multiple Choice', '1+2', 'C', '10','1','2','3','4'),
-(3, '151220201001', 'Multiple Choice', '1+3', 'D', '10','1','2','3','4'),
-(4, '151220201001', 'Multiple Choice', '2+2', 'D', '10','1','2','3','4'),
-(5, '151220201001', 'Multiple Choice', '10+10', 'B', '10','10','20','30','40'),
-(6, '151220201001', 'Multiple Choice', '10+20', 'C', '10','10','20','30','40'),
-(7, '151220201001', 'Multiple Choice', '10+30', 'D', '10','10','20','30','40'),
-(8, '151220201001', 'Multiple Choice', '20+20', 'D', '10','10','20','30','40'),
-(9, '151220201001', 'T/F', 'Eddie is handsome?', 'T', '10','true','false','',''),
-(10, '151220201001', 'T/F', 'Eddie is not handsome?', 'F', '10','true','false','',''),
-(11, '151220201001', 'short', 'Who am I?', 'not Ethan', '10','','','','')
+$addQuestionRecords ="REPLACE INTO question (questionNum, examID, Type, question, answer, points, option1, option2, option3, option4, result) VALUES
+(1, '151220201001', 'Multiple Choice', '1+1', 'B', '10','1','2','3','4', null),
+(2, '151220201001', 'Multiple Choice', '1+2', 'C', '10','1','2','3','4', null),
+(3, '151220201001', 'Multiple Choice', '1+3', 'D', '10','1','2','3','4', null),
+(4, '151220201001', 'Multiple Choice', '2+2', 'D', '10','1','2','3','4', null),
+(5, '151220201001', 'Multiple Choice', '10+10', 'B', '10','10','20','30','40', null),
+(6, '151220201001', 'Multiple Choice', '10+20', 'C', '10','10','20','30','40', null),
+(7, '151220201001', 'Multiple Choice', '10+30', 'D', '10','10','20','30','40', null),
+(8, '151220201001', 'Multiple Choice', '20+20', 'D', '10','10','20','30','40', null),
+(9, '151220201001', 'T/F', 'Eddie is handsome?', 'T', '10','true','false','','', null),
+(10, '151220201001', 'T/F', 'Eddie is not handsome?', 'F', '10','true','false','','', null),
+(11, '151220201001', 'short', 'Who am I?', 'not Ethan', '10','','','','', null)
 ;";
 
 $dropAnswerTable = "DROP TABLE IF EXISTS answer";
@@ -139,7 +141,29 @@ $createAnswerTable = "CREATE TABLE answer (
 (8, '151220201001', 23456, 'B'),
 (9, '151220201001', 23456, 'F'),
 (10,'151220201001', 23456, 'F'),
-(11,'151220201001', 23456, 'idk')
+(11,'151220201001', 23456, 'idk'),
+(1, '151220201001', 34567, 'C'),
+(2, '151220201001', 34567, 'B'),
+(3, '151220201001', 34567, 'C'),
+(4, '151220201001', 34567, 'D'),
+(5, '151220201001', 34567, 'B'),
+(6, '151220201001', 34567, 'C'),
+(7, '151220201001', 34567, 'B'),
+(8, '151220201001', 34567, 'D'),
+(9, '151220201001', 34567, 'F'),
+(10,'151220201001', 34567, 'T'),
+(11,'151220201001', 34567, 'idk'),
+(1, '151220201001', 45678, 'C'),
+(2, '151220201001', 45678, 'A'),
+(3, '151220201001', 45678, 'C'),
+(4, '151220201001', 45678, 'D'),
+(5, '151220201001', 45678, 'B'),
+(6, '151220201001',	45678, 'C'),
+(7, '151220201001', 45678, 'B'),
+(8, '151220201001', 45678, 'A'),
+(9, '151220201001', 45678, 'F'),
+(10,'151220201001', 45678, 'T'),
+(11,'151220201001', 45678, 'idk')
 ;";
 
 
@@ -149,12 +173,20 @@ $createGradeTable = "CREATE TABLE grade (
 	examID varchar(64) NOT NULL,
 	userID int NOT NULL,
   	grade int,
+  	submitTime varchar(20),
   	CONSTRAINT CompKey_userID_examID PRIMARY KEY (userID, examID),
   	FOREIGN KEY (examID)
   		REFERENCES exam(examID),
   	FOREIGN KEY (userID)
   		REFERENCES users(userID)
  ) ENGINE=MyISAM  DEFAULT CHARSET='latin1'";
+
+ $addGradeRecords ="REPLACE INTO grade (examID, userID, grade, submitTime) VALUES
+('151220201001', 12345, '', '12:59:01'),
+('151220201001', 23456, '', '12:59:04'),
+('151220201001', 34567, '', '12:59:06'),
+('151220201001', 45678, '', '12:59:08')
+;";
 
 $result = mysqli_query($connect, $createAccount);
 
@@ -224,7 +256,10 @@ else{
 					$result = mysqli_query($connect, $createGradeTable);
 					if (!$result) {
 						die("Could not successfully run query ($createGradeTable) from $db: " .mysqli_error($connect) );
-					}else {
+					}else { $result = mysqli_query($connect, $addGradeRecords);
+						if (!$result) {
+							die("Could not successfully run query ($addGradeRecords) from $db: " .mysqli_error($connect) );
+						}else {
 
 							print("<html><head><title>MySQL Setup</title></head>
 							<body><h1>MySQL Setup: SUCCESS!</h1><p>Created MySQL user <strong>wbip</strong> with 
@@ -239,7 +274,7 @@ else{
 		}
 	}
 }
-}}}}}}}}
+}}}}}}}}}
 mysqli_close($connect);   // close the connection
  
 ?>
