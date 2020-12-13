@@ -15,11 +15,11 @@
             }
 
             else { 
-            print "<p>Result for the following exam.</p>";
-            print "<table id = \"examGradeTbl\" border='1'>";
-            print "<tr><th>UserID</th><th>Student Name</th><th>Grade</th></tr>";
+            print "<h4>Result for the following exam.</h4>";
+            print "<table class = \"examGradeTbl\" border='1'>";
+            print "<tr><th>UserID</th><th>Student Name</th><th>Grade</th><th>Submission Time</th></tr>";
             while( $row3 = mysqli_fetch_assoc($result3) ){
-              print "<tr><td>". $row3['userID']. "</td><td>" . $row3['firstName'] . " " . $row3['lastName']. "</td><td>" .$row3['grade']. "</td></tr>";    
+              print "<tr><td>". $row3['userID']. "</td><td>" . $row3['firstName'] . " " . $row3['lastName']. "</td><td>" .$row3['grade']. "</td><td>" .$row3['submitTime']."</td></tr>";    
             }
             print "</table>";  
         }
@@ -78,6 +78,51 @@
     }
     print "<p>The median is: " .$median."</p>";
 
+    print "<h4>Statistic per Question.</h4>";
+    print "<table class = \"examGradeTbl\" border='1'>";
+    print "<tr><th>Question Number</th><th>Question</th><th>Correct Answer Percentage(%)</th><th>Average Points</th></tr>";
+     $qNumQuery= "SELECT questionNum, question FROM question WHERE examID = $examID GROUP BY questionNum";
+            $resultqNum = mysqli_query($connect, $qNumQuery);
+              if (!$qNumQuery) {
+            die('Invalid query: ' . mysqli_error($connect));
+            }
+            while ($rowqNum = mysqli_fetch_assoc($resultqNum))
+            {
+            	$qNum =$rowqNum['questionNum'];
+            	$question = $rowqNum['question'];
+
+            		$UserQuery= "SELECT COUNT(userID) as StudentNum FROM answer WHERE examID = $examID GROUP BY questionNum";
+		            $resultUser = mysqli_query($connect, $UserQuery);
+		              if (!$UserQuery) {
+		            die('Invalid query: ' . mysqli_error($connect));
+		            }
+		            $rowUser = mysqli_fetch_assoc($resultUser);
+		            $totalStudent = $rowUser['StudentNum'];
+
+		            $MarkQuery= "SELECT points FROM question WHERE examID = $examID AND questionNum = $qNum";
+		            $resultMark = mysqli_query($connect, $MarkQuery);
+		              if (!$MarkQuery) {
+		            die('Invalid query: ' . mysqli_error($connect));
+		            }
+		            $rowMark = mysqli_fetch_assoc($resultMark);
+		            $points = $rowMark['points'];
+
+		            $resultQuery= "SELECT COUNT(result) as CorrectCount FROM answer WHERE examID = $examID AND questionNum = $qNum AND result = 'Correct'";
+		            $result = mysqli_query($connect, $resultQuery);
+		              if (!$resultQuery) {
+		            die('Invalid query: ' . mysqli_error($connect));
+		            }
+		            $row = mysqli_fetch_assoc($result);
+		            $totalCorrect = $row['CorrectCount'];
+
+		            $avgC =($totalCorrect/$totalStudent)*100;
+		            $avgPQ = ($totalCorrect*$points)/$totalStudent;
+
+		            print "<tr><td>".$qNum."</td><td>" . $question . "</td><td>" .$avgC. "</td><td>" .$avgPQ."</td></tr>";
+
+            }
+
+            print "</table>";  
 
 
  ?>

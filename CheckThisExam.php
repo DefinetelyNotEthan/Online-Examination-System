@@ -30,13 +30,27 @@
                 {
                   if ($row1['answer'] == $row['userAnswer'])
                   {
-                    $grade += $row1['points'];
-                  }
 
+                    $grade += $row1['points'];
+
+                    $sql6 = "UPDATE answer SET result = 'Correct' WHERE examID = $examID AND userID = $userSearch AND questionNum = $questionNum";
+                    $add6 = mysqli_query($connect, $sql6);
+                      if (!$add6) {
+                       die('Invalid query: ' . mysqli_error($connect));
+                    }
+                  }
+                  else
+                  {
+                     $sql6 = "UPDATE answer SET result = 'Incorrect' WHERE examID = $examID AND userID = $userSearch AND questionNum = $questionNum";
+                    $add6 = mysqli_query($connect, $sql6);
+                      if (!$add6) {
+                       die('Invalid query: ' . mysqli_error($connect));
+                  }
+                }
                 }
               }   
             }
-            $sql2 = "INSERT INTO grade (examID, userID, grade) VALUES ('$examID','$userSearch','$grade')";
+            $sql2 = "UPDATE grade SET grade = $grade WHERE examID = $examID AND userID = $userSearch";
                 $add1 = mysqli_query($connect, $sql2);
                 if (!$add1) {
                 die('Invalid query: ' . mysqli_error($connect));
@@ -57,9 +71,9 @@
             else { 
             print "<p>Exam successfully checked.</p>";
             print "<table id = \"examGradeTbl\" border='1'>";
-            print "<tr><th>UserID</th><th>Student Name</th><th>Grade</th></tr>";
+            print "<tr><th>UserID</th><th>Student Name</th><th>Grade</th><th>Submission Time</th></tr>";
             while( $row3 = mysqli_fetch_assoc($result3) ){
-              print "<tr><td>". $row3['userID']. "</td><td>" . $row3['firstName'] . " " . $row3['lastName']. "</td><td>" .$row3['grade']. "</td></tr>";    
+              print "<tr><td>". $row3['userID']. "</td><td>" . $row3['firstName'] . " " . $row3['lastName']. "</td><td>" .$row3['grade']."</td><td>" .$row3['submitTime']. "</td></tr>";    
             }
             print "</table>";       
           }

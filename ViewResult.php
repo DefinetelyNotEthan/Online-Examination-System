@@ -79,7 +79,7 @@
       <div id="qList"></div><br><br>
       </form>
         <form>
-             <input type="text" value ="user ID" >
+             <input type="text" id ="ID" name ="ID">
              <input type="button" type="button" class="btn btn-info btn-small" onclick="showST()" value ="For this Student" >
         <br></form>
       <div id="sList"></div><br><br>

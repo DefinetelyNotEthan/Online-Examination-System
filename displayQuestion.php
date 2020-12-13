@@ -10,7 +10,7 @@
             die("Could not successfully run query.");
             }
               if (mysqli_num_rows($result) == 0) {
-            print "You dont have any exam";
+            print "You dont have any questions";
             }
 
             else { 

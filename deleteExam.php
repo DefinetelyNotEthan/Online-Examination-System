@@ -14,9 +14,19 @@
   if (!$del1) {
     die('Invalid query: ' . mysqli_error($connect));}
 
-  $sql1 = "DELETE FROM question WHERE examID = $examID";
-  $del1 = mysqli_query($connect, $sql1);
-  if (!$del1) {
+  $sql2 = "DELETE FROM question WHERE examID = $examID";
+  $del2 = mysqli_query($connect, $sql2);
+  if (!$del2) {
+    die('Invalid query: ' . mysqli_error($connect));}
+
+  $sql3 = "DELETE FROM answer WHERE examID = $examID";
+  $del3 = mysqli_query($connect, $sql3);
+  if (!$del3) {
+    die('Invalid query: ' . mysqli_error($connect));}
+
+  $sql4 = "DELETE FROM grade WHERE examID = $examID";
+  $del4 = mysqli_query($connect, $sql4);
+  if (!$del4) {
     die('Invalid query: ' . mysqli_error($connect));}
 
   header("Location: ExamList.php");

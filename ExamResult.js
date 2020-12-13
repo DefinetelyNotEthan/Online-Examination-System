@@ -22,11 +22,19 @@ function showS() {
 
 function showST() {
 
-		var str = document.getElementById("thisStudent_select").value;
-		var myRequest = new XMLHttpRequest();
-		myRequest.open("GET", "checkedExamStudent.php?q="+str, true);
-		myRequest.send();
-		myRequest.onload = function(){
+		var str = document.getElementById("ID").value;
+		if (str.length == 5)
+		{
+			var myRequest = new XMLHttpRequest();
+			myRequest.open("GET", "ResultperStudent.php?q="+str, true);
+			myRequest.send();
+			myRequest.onload = function(){
 			document.getElementById("sList").innerHTML = this.responseText;	
+		}
 	}
-}
+		else
+		{
+			alert ("Invalid user ID");
+		}
+		
+	}
