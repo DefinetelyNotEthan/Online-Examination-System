@@ -20,25 +20,23 @@ if (isset($_POST['loginID']) && isset($_POST['FN']) && isset($_POST['LN'])
     $COU = validate($_POST['COU']);
     $GEN = validate($_POST['GEN']);
     $BD = validate($_POST['BD']);
-    if($loginID>=10000 && $loginID<50000){
+    if($loginID>=10000 && $loginID<60000){
         $role = "student"; 
-    }else if($loginID>=50000 && $loginID<90000){
+    }else if($loginID>=60000 && $loginID<90000){
         $role = "teacher";
     }else{
         $role = "admin";
     }
 
-    if($GEN=="M"){
-        $GEN = "Male";
-    }else{
-        $GEN = "Female";
-    if($loginID>=10000 && $loginID<50000){
+
+
+    if($loginID>=10000 && $loginID<60000){
         if($GEN=="M"){
             $GEN = "Male";
         }else{
             $GEN = "Female";
         }
-    }
+    
 
 
     /*
@@ -76,5 +74,6 @@ if (isset($_POST['loginID']) && isset($_POST['FN']) && isset($_POST['LN'])
                    
     }
     
+}
 }
 ?>

@@ -28,29 +28,29 @@ function submitForm() {
     }else if(PW==""){
         alert("PLEASE INPUT A VALID PASSWORD");
         return false;
-    }else if(COU=="" && loginID>=50000){
+    }else if(COU=="" && loginID>=60000){
         alert("PLEASE INPUT A VALID COURSE NUMBER");
         return false;
-    }else if(COU!=="" && loginID<50000){
+    }else if(COU!=="" && loginID<60000){
         alert("COURSE NUMBER SHOULD BE INPUT BY A TEACHER. IF YOU ARE A STUDENT, PLEASE LEAVE THIS BLANK");
         document.getElementById("COU").value = "";
         return false;
-    }else if(GEN!=="" && loginID>=50000){
+    }else if(GEN!=="" && loginID>=60000){
         alert("GENDER SHOULD BE INPUT BY A STUDENT. IF YOU ARE A TEACHER, PLEASE LEAVE THIS BLANK");
         document.getElementById("GEN").value = "";
         return false;
-    }else if(GEN!=="" && loginID<50000 && GEN!=="M" && GEN!=="F"){
+    }else if(GEN!=="" && loginID<60000 && GEN!=="M" && GEN!=="F"){
         alert("PLEASE INPUT A VALID GENDER WITH LETTER 'M' OR 'F'");
         document.getElementById("GEN").value = "";
         return false;
-    }else if(GEN=="" && loginID<50000){
+    }else if(GEN=="" && loginID<60000){
         alert("PLEASE INPUT A VALID GENDER");
         return false;
-    }else if(BD!=="" && loginID>=50000){
+    }else if(BD!=="" && loginID>=60000){
         alert("BIRTHDAY SHOULD BE INPUT BY A STUDENT. IF YOU ARE A TEACHER, PLEASE LEAVE THIS BLANK");
         document.getElementById("BD").value = "";
         return false;
-    }else if(BD=="" && loginID<50000){
+    }else if(BD=="" && loginID<60000){
         alert("PLEASE INPUT A VALID BIRTHDAY");
         return false;
     }else{
