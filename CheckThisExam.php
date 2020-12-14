@@ -28,7 +28,9 @@
                 $answer = mysqli_query($connect, $answerQuery);
                 while( $row1 = mysqli_fetch_assoc($answer) )
                 {
-                  if ($row1['answer'] == $row['userAnswer'])
+                  $a = $row1['answer'];
+                  $b = $row['userAnswer'];
+                  if ( strcasecmp($a, $b) == 0 )
                   {
 
                     $grade += $row1['points'];

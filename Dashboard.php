@@ -24,17 +24,54 @@
 
 <!-- Left Sidebar -->
 <div class ="sidenav">
-	<a href="#"><img src="polyuLogo.png" alt= "polyulogo" class="rounded-circle" id="polyulogo"> </a>
-
-	  	<a class = "active sideMenu" href="Dashboard.php">Dashboard</a>
- 		<a class="sideMenu" href="TeacherMakeExam.php">Create Exam</a>
-  		<a class = "sideMenu" href= "Examlist.php">Exam List</a>
-  		<a class = "sideMenu" href="CheckExam.php">Check Exam</a>
-  		<a class = "sideMenu" href="ViewResult.php">View Result</a>
+  <?php
+  if (intval($_SESSION['userID'])>49999){
+    if(intval($_SESSION['userID'])<90000)
+    	{echo "<a href=\"#\"><img src=\"polyuLogo.png\" alt= \"polyulogo\" class=\"rounded-circle\" id=\"polyulogo\"> </a>\"";
+    	echo "<a class = \"active sideMenu\" href=\"Dashboard.php\">Dashboard</a>";
+      echo "<a class=\"sideMenu\" href=\"TeacherMakeExam.php\">Create Exam</a>";
+      echo "<a class = \"sideMenu\" href= \"Examlist.php\">Exam List</a>";
+      echo "<a class = \"sideMenu\" href=\"CheckExam.php\">Check Exam</a>";
+      echo "<a class = \"sideMenu\" href=\"ViewResult.php\">View Result</a>";}
+    else{
+      echo "<a href=\"#\"><img src=\"polyuLogo.png\" alt= \"polyulogo\" class=\"rounded-circle\" id=\"polyulogo\"> </a>\"";
+      echo "<a class = \"active sideMenu\" href=\"Dashboard.php\">Dashboard</a>";
+      echo "<a class=\"sideMenu\" href=\"AdminPage.php\">User List</a>";
+      }
+    }
+    else {
+      echo "<a href=\"#\"><img src=\"polyuLogo.png\" alt= \"polyulogo\" class=\"rounded-circle\" id=\"polyulogo\"> </a>\"";
+      echo "<a class = \"active sideMenu\" href=\"Dashboard.php\">Dashboard</a>";
+      echo "<a class=\"sideMenu\" href=\"#\">Take an Exam</a>";
+      echo "<a class=\"sideMenu\" href=\"#\">View Results</a>";
+    }
+  ?>
  </div>
 
+  <div class = "content">
+  <h1 class="thicker"> HI,  <?php echo $_SESSION['firstName']." ".$_SESSION['lastName']; ?></h1>
+    <?php
+  if (intval($_SESSION['userID'])>49999){
+    if(intval($_SESSION['userID'])<90000)
+      {echo "<ul><li> <p>Click Create Exam to add a new exam.</p></li>";
+      echo "<li> <p>Click Exam List to see all of your Exams.</p></li>";
+      echo "<li> <p>Click Check Exam to check unchecked exams.</p></li>";
+      echo "<li> <p>Click View Results to see the statiscs of your exams</p></li>";
+      echo "<li> <p>Go to the right upper corner to log out or edit profile</p></li></ul>";}
+    else{
+      echo "<ul><li> <p>Click User list to view users and modify the list</p></li>";
+      echo "<li> <p>Go to the right upper corner to log out or edit profile</p></li></ul>";
+      }
+    }
+    else {
+      echo "<ul><li> <p>Click Take an Exam to start an Exam. The exam can only be started affter its corresponding starting time and can't no longer be started after its due date</p></li>";
+      echo "<li> <p>Click View Results to analyze your performance. Grades will only be released after Teacher approval.</p></li>";
+      echo "<li> <p>Go to the right upper corner to log out or edit profile</p></li></ul>";
+    }
+  ?>
 
-<?php include 'footer.php';?>
+  
+  </div>
 </body> 
 
 
