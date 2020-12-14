@@ -23,10 +23,9 @@
 <!-- Left Sidebar -->
 <div class ="sidenav">
 	<a href="#"><img src="polyuLogo.png" alt= "polyulogo" class="rounded-circle" id="polyulogo"> </a>
-		<a class = "sideMenu" href="Dashboard.php">Dashboard</a>
-	  	<a class = "active sideMenu" href="Student-take-exam.php">Take an Exam</a>
- 		<a class="sideMenu" href="Student-view-result.php">View Results</a>
 
+	  	<a class = "active sideMenu" href="Student-take-exam.php">Take Exam</a>
+ 		<a class="sideMenu" href="Student-view-result.php">View Results</a>
  </div>
 
  <?php
@@ -103,13 +102,13 @@
 	}
 	 ?>
 
-<form action="Student-answerQ.php" method="post" style=" bottom:15px;">
+<form action="Student-take-exam-validation.php" method="post" style=" bottom:15px;">
 			<div>
 				<br>
 				<h1 class="thicker">Please enter the exam ID you want to take: </h1>
 				<INPUT TYPE = "Text"  NAME = "examID" placeholder="ExamID" id="ExamID" style="position:relative; bottom:15px;">
 				<button type="submit" class="btn btn-info btn-large" style="position:relative;bottom:17px;"
-				onclick="return submitExamID()">Start The Exam</button>
+				onclick="return submitExamID()" >Start The Exam</button>
 			</div>
 			</form>	
 	</div>

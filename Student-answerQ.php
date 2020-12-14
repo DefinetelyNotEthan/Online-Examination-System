@@ -46,8 +46,8 @@
 
         
         <?php
-
-        $examID = $_POST['examID'];
+        
+        $examID = $_SESSION['examID'];
 
         include_once 'connect_database.php';
 
@@ -78,7 +78,7 @@
             echo '<br>';
             echo "Exam Starting Time: ".$takeExamDateStart;
             echo '<br>';
-            echo "Exam Starting Time: ".$takeExamDateEnd;
+            echo "Exam Ending Time: ".$takeExamDateEnd;
             
             if(($date>$takeExamDateEnd) || ($date<$takeExamDateStart)){ ?>
 
@@ -90,7 +90,8 @@
             
             
             
-            <form action="Student-check-result.php" method="post">
+            <form action="Student-obtain-answer.php" method="post">
+            
             <h2><b>Welcome to the Exam <?php echo $ExamRow['examName'];?> !</b></h2>
             <h2><b>The end time of the exam is <?php echo $ExamRow['endTime'];?> </b></h2>
             <h2><b>Questions: </b></h2>
@@ -119,10 +120,11 @@
             while($rows = mysqli_fetch_array($query)){
             ?>
             
+            
             <?php if($rows['Type']=="Multiple Choice"){ ?>
-
+         
             <div class="card-body">
-                <input type="radio" name="quizcheck[<?php echo $rows['questionNum'];?>]" value="A">
+                <input type="radio" name="quizcheck[<?php echo $rows['questionNum'];?>]" value="A" >
                 <?php echo $rows['option1']; ?>
             </div>
             <div class="card-body">
@@ -165,10 +167,11 @@
 	</div>
 
     
-        <input type="submit" name="submit" value="Submit" class="btn btn-info btn-large">
+        <input type="submit" name="click" value="Submit" class="btn btn-info btn-large" >
         
         </form>
  
         <?php } ?>
+        
 </body> 
 </html>
