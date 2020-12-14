@@ -15,8 +15,8 @@
             }
 
             else { 
-            print "<h4>Result for the following exam.</h4>";
-            print "<table class = \"examGradeTbl\" border='1'>";
+            print "<br><h4><b>Result for the following exam</b></h4>";
+            print "<table class = \"examGradeTbl\" border='1'style =\"width: 95%;\">";
             print "<tr><th>UserID</th><th>Student Name</th><th>Grade</th><th>Submission Time</th></tr>";
             while( $row3 = mysqli_fetch_assoc($result3) ){
               print "<tr><td>". $row3['userID']. "</td><td>" . $row3['firstName'] . " " . $row3['lastName']. "</td><td>" .$row3['grade']. "</td><td>" .$row3['submitTime']."</td></tr>";    
@@ -24,6 +24,8 @@
             print "</table>";  
         }
 
+         print "<br><h4><b>Exam Statistic</b></h4>";
+         print "<table class = \"examGradeTbl\" style =\"width: 25%;\">";
 
    	$MAXQuery= "SELECT MAX(grade) as MaxGrade FROM grade WHERE examID = $examID";
 
@@ -32,7 +34,7 @@
             die('Invalid query: ' . mysqli_error($connect));
             }
             $rowMax = mysqli_fetch_assoc($resultMAX);
-            print "<p>The Maximum score is: " . $rowMax['MaxGrade']."</p>";
+            print "<tr><td><p>The Maximum score is:</td><td> " . $rowMax['MaxGrade']."</p></td></tr>";
 
     $MINQuery= "SELECT MIN(grade) as MINGrade FROM grade WHERE examID = $examID";
 
@@ -41,7 +43,7 @@
             die('Invalid query: ' . mysqli_error($connect));
             }
             $rowMIN = mysqli_fetch_assoc($resultMIN);
-            print "<p>The Minimum score is: " . $rowMIN['MINGrade']."</p>";
+            print "<tr><td><p>The Minimum score is:</td><td>  " . $rowMIN['MINGrade']."</p></td></tr>";
 
      $AVGQuery= "SELECT AVG(grade) as AVGGrade FROM grade WHERE examID = $examID";
 
@@ -52,7 +54,7 @@
             $rowAVG = mysqli_fetch_assoc($resultAVG);
             $avg = $rowAVG['AVGGrade'];
             $favg = number_format ($avg,2);
-            print "<p>The Average score is: " .$favg ."</p>";
+            print "<tr><td><p>The Average score is:</td><td>  " .$favg ."</p></td></tr>";
 
      $arr = array();
      $i=0;
@@ -76,10 +78,10 @@
         $high = $arr[$middleval+1];
         $median = (($low+$high)/2);
     }
-    print "<p>The median is: " .$median."</p>";
+    print "<tr><td><p>The median is:</td><td>  " .$median."</p></td></tr></table>";
 
-    print "<h4>Statistic per Question.</h4>";
-    print "<table class = \"examGradeTbl\" border='1'>";
+    print "<br><h4><b>Statistic per Question</b></h4>";
+    print "<table class = \"examGradeTbl\" border='1' style =\"width: 95%;\">";
     print "<tr><th>Question Number</th><th>Question</th><th>Correct Answer Percentage(%)</th><th>Average Points</th></tr>";
      $qNumQuery= "SELECT questionNum, question FROM question WHERE examID = $examID GROUP BY questionNum";
             $resultqNum = mysqli_query($connect, $qNumQuery);

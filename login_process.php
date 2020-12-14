@@ -32,13 +32,17 @@ if (isset($_POST['userID']) && isset($_POST['password'])) {
                      $_SESSION['userID'] = $row['userID'];
                      $_SESSION['firstName'] = $row['firstName'];
                      $_SESSION['lastName'] = $row['lastName'];
+                     $_SESSION['profilepic'] = $row['profilepic'];
                      echo $_SESSION['firstName'];
 
                      if($_SESSION['userID']>=10000 && $_SESSION['userID']<60000){
-                        header("Location: Student-take-exam.php");
+                        header("Location: Dashboard.php");
                      }else if($_SESSION['userID']>=60000 && $_SESSION['userID']<90000){
                     
                      header("Location: Dashboard.php");
+                     }
+                     else {
+                        header("Location: Dashboard.php");
                      }
 
                      exit();

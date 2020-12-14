@@ -25,7 +25,7 @@
 <!-- Left Sidebar -->
 <div class ="sidenav">
   <?php
-  if (intval($_SESSION['userID'])>49999){
+  if (intval($_SESSION['userID'])>59999){
     if(intval($_SESSION['userID'])<90000)
     	{echo "<a href=\"#\"><img src=\"polyuLogo.png\" alt= \"polyulogo\" class=\"rounded-circle\" id=\"polyulogo\"> </a>\"";
     	echo "<a class = \"active sideMenu\" href=\"Dashboard.php\">Dashboard</a>";
@@ -42,8 +42,8 @@
     else {
       echo "<a href=\"#\"><img src=\"polyuLogo.png\" alt= \"polyulogo\" class=\"rounded-circle\" id=\"polyulogo\"> </a>\"";
       echo "<a class = \"active sideMenu\" href=\"Dashboard.php\">Dashboard</a>";
-      echo "<a class=\"sideMenu\" href=\"#\">Take an Exam</a>";
-      echo "<a class=\"sideMenu\" href=\"#\">View Results</a>";
+      echo "<a class=\"sideMenu\" href=\"Student-take-exam.php\">Take an Exam</a>";
+      echo "<a class=\"sideMenu\" href=\"Student-view-result.php\">View Results</a>";
     }
   ?>
  </div>
@@ -51,7 +51,7 @@
   <div class = "content">
   <h1 class="thicker"> HI,  <?php echo $_SESSION['firstName']." ".$_SESSION['lastName']; ?></h1>
     <?php
-  if (intval($_SESSION['userID'])>49999){
+  if (intval($_SESSION['userID'])>59999){
     if(intval($_SESSION['userID'])<90000)
       {echo "<ul><li> <p>Click Create Exam to add a new exam.</p></li>";
       echo "<li> <p>Click Exam List to see all of your Exams.</p></li>";

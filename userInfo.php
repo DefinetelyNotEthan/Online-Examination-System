@@ -15,7 +15,7 @@
             else { 
             if ($userID < 50000)
             {  
-                print "<table id = 'examListTbl' border='1'>";
+                print "<br><table id = 'examListTbl' border='1' style =\"width: 100%;\">";
                 print "<tr><th>userID</th><th>User Name</th><th>Roles</th><th>Password</th><th>Nickname</th><th>Email</th><th>Profile Picture Link</th><th>Gender</th><th>Birthday</th></tr>";
                 while( $row = mysqli_fetch_assoc($result) ){
                   print "<tr><td>". $row['userID']. "</td><td>" .$row['firstName']." ".$row['lastName']. "</td><td>" . $row['roles']."</td><td>" . $row['password']."</td><td>" . 
@@ -24,7 +24,7 @@
                 print "</table>";
             }
              else{
-                print "<table id = 'examListTbl' border='1'>";
+                print "<br><table id = 'examListTbl' border='1'style =\"width: 100%;\">";
                 print "<tr><th>userID</th><th>User Name</th><th>Roles</th><th>Password</th><th>Email</th><th>Profile Picture Link</th><th>Gender</th><th>Course</th></tr>";
                 while( $row = mysqli_fetch_assoc($result) ){
                   print "<tr><td>". $row['userID']. "</td><td>" .$row['firstName']." ".$row['lastName']. "</td><td>" . $row['roles']."</td><td>" . $row['password']."</td><td>" .  $row['email']."</td><td>" . $row['profilepic']."</td><td>" . $row['gender']."</td><td>" . $row['course']."</td></tr>";    

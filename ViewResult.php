@@ -55,7 +55,7 @@
             }
 
             else { 
-            print "<table id = \"examListTbl\" border='1'>";
+            print "<table class = \"examListTbl \" border='1' style =\"width: 100%;\">";
             print "<tr><th>Exam ID</th><th>Exam Name</th><th>Exam Date</th><th>Start Time</th><th>End Time</th><th>Total Question</th></tr>";
             while( $row = mysqli_fetch_assoc($result) ){
               print "<tr><td>". $row['examID']. "</td><td>" .$row['examName']. "</td><td>" . $row['examDate'] . "</td><td>" . $row['startTime']. "</td><td>" .$row['endTime']. "</td><td>" .

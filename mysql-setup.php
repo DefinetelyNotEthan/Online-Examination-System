@@ -32,7 +32,7 @@ $createUsersTable = "CREATE TABLE users (
   password varchar(64) NOT NULL,
   nickname varchar(64),
   email varchar(64),
-  profilepic varchar(64),
+  profilepic varchar(255) COLLATE utf8_unicode_ci,
   gender varchar(64),
   birthday varchar(64),
   course varchar(64),
@@ -40,15 +40,15 @@ $createUsersTable = "CREATE TABLE users (
  ) ENGINE='MyISAM'  DEFAULT CHARSET='latin1'";
 
 $addUsersRecords ="REPLACE INTO users (userID, roles, firstName, lastName, password, nickname, email, profilepic, gender, birthday, course) VALUES
-(12345, 'student', 'Francesco', 'York', '12345fy', 'Franc', '12345@fake.com','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgfctOQPcfZMAIBzJqKiDa9LUY8SmuSGff_g&usqp=CAU','Male','27/1/1998',null),
-(23456, 'student', 'Neo', 'Whitehouse', '23456nw', 'Neo','23456@fake.com','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdX7wWCMOvGYD6_4-MthVKf-DjjgLF_GqQzg&usqp=CAU', 'Male','25/2/1998',null),
-(34567, 'student', 'Ruby-May',  'Miller', '34567rm', 'Ruby', '34567@fake.com','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyEaZqT3fHeNrPGcnjLLX1v_W4mvBlgpwxnA&usqp=CAU', 'Female','7/10/1998',null),
-(45678, 'student', 'Dulcie', 'Luna', '45678dl', 'Dulcie', '45678@fake.com','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKYZ06dLHWPoo4JqBY2jIstouDIXp1wHKbsg&usqp=CAU', 'Female', '2/12/1998',null),
-(56789, 'teacher', 'Jasleen', 'Wood', '56789jw', 'Jas', '56789@fake.com','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn2J4ZkgwHy9Mb5R5_i4tfeBKVUmJj-iP1dw&usqp=CAU','Female', null,'EIE3000'),
-(67890, 'teacher', 'Cerys' , 'Blundell', '67890cb', 'Cerys', '67890@fake.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAP4Zo4Iwsc08rxjj4xS4p28lQKb8hlw85ng&usqp=CAU', 'Female',null,'EIE1001'),
-(78901, 'teacher', 'Enrique', 'Armitage', '78901ea', 'Eric', '78901@fake.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvxDrCR5SfO2zzeBNLF9U9xbjlC8-ToAA68g&usqp=CAU', 'Male',null,'EIE1002'),
-(89012, 'teacher', 'Denzel', 'Mcintyre', '89012dm', 'Denzel', '89012@fake.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGqeiMvcMA8ATx6McIgv0QgGq9njL6_9Q9Ww&usqp=CAU', 'Male',null,'EIE1003'),
-(90123, 'admin', 'Griffin','Nolan','90123gn', 'Griffin', '90123@fake.com', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXU60XpA0zHd_GktQO0YfR5bfr2xr6ADFfeA&usqp=CAU', 'Male',null,null);";
+(12345, 'student', 'Francesco', 'York', '12345fy', 'Franc', '12345@fake.com','default.png','Male','27/1/1998',null),
+(23456, 'student', 'Neo', 'Whitehouse', '23456nw', 'Neo','23456@fake.com','neo_whitehouse.jpg', 'Male','25/2/1998',null),
+(34567, 'student', 'Ruby-May',  'Miller', '34567rm', 'Ruby', '34567@fake.com','ruby_miller.jpg', 'Female','7/10/1998',null),
+(45678, 'student', 'Dulcie', 'Luna', '45678dl', 'Dulcie', '45678@fake.com','dulcie_luna.jpg', 'Female', '2/12/1998',null),
+(56789, 'student', 'Jasleen', 'Wood', '56789jw', 'Jas', '56789@fake.com','jasleen_wood.jpg','Female', '25/2/2000',null),
+(67890, 'teacher', 'Cerys' , 'Blundell', '67890cb', 'Cerys', '67890@fake.com', 'cerys_blundell.jpg', 'Female',null,'EIE1001'),
+(78901, 'teacher', 'Enrique', 'Armitage', '78901ea', 'Eric', '78901@fake.com', 'enrique.jpg', 'Male',null,'EIE1002'),
+(89012, 'teacher', 'Denzel', 'Mcintyre', '89012dm', 'Denzel', '89012@fake.com', 'denzel.jpg', 'Male',null,'EIE1003'),
+(90123, 'admin', 'Griffin','Nolan','90123gn', 'Griffin', '90123@fake.com', 'griffin.jpg', 'Male',null,null);";
 
 $dropExamTable = "DROP TABLE IF EXISTS exam";
 

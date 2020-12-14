@@ -72,7 +72,7 @@
 
             else { 
             print "<p>Exam successfully checked.</p>";
-            print "<table id = \"examGradeTbl\" border='1'>";
+            print "<table class = \"examListTbl\" border='1' style =\"width: 100%;\">";
             print "<tr><th>UserID</th><th>Student Name</th><th>Grade</th><th>Submission Time</th></tr>";
             while( $row3 = mysqli_fetch_assoc($result3) ){
               print "<tr><td>". $row3['userID']. "</td><td>" . $row3['firstName'] . " " . $row3['lastName']. "</td><td>" .$row3['grade']."</td><td>" .$row3['submitTime']. "</td></tr>";    

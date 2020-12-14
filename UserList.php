@@ -12,7 +12,7 @@
             }
 
             else { 
-            print "<table id = 'examListTbl' border='1'>";
+            print "<table id = 'examListTbl' border='1' style =\"width: 95%;\">";
             print "<tr><th>userID</th><th>User Name</th><th>Roles</th></tr>";
             while( $row = mysqli_fetch_assoc($result) ){
               print "<tr><td>". $row['userID']. "</td><td>" .$row['firstName']." ".$row['lastName']. "</td><td>" . 
