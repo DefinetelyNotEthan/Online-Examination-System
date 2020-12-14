@@ -22,7 +22,7 @@
 <!-- Left Sidebar -->
 <div class ="sidenav">
 	<a href="#"><img src="polyuLogo.png" alt= "polyulogo" class="rounded-circle" id="polyulogo"> </a>
-
+        <a class = "sideMenu" href="Dashboard.php">Dashboard</a>
 	  	<a class = "sideMenu" href="Student-take-exam.php">Take Exam</a>
  		<a class="sideMenu" href="Student-view-result.php">View Results</a>
  </div>

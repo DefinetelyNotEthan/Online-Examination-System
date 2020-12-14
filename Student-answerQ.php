@@ -101,7 +101,7 @@
             
              $q= "SELECT *
              FROM question 
-             WHERE questionNum = $i ";
+             WHERE questionNum = $i AND examID = $examID";
              $query = mysqli_query($connect,$q);
             
             while($rows = mysqli_fetch_array($query)){
@@ -114,7 +114,7 @@
 
             $q= "SELECT *
              FROM question 
-             WHERE questionNum = $i ";
+             WHERE questionNum = $i AND examID = $examID";
              $query = mysqli_query($connect,$q);
             
             while($rows = mysqli_fetch_array($query)){
@@ -141,11 +141,11 @@
             </div>
         <?php }else if($rows['Type']=="T/F"){ ?>
             <div class="card-body">
-                <input type="radio" name="quizcheck[<?php echo $rows['questionNum'];?>]" value="T">
+                <input type="radio" name="quizcheck[<?php echo $rows['questionNum'];?>]" value="T">True
                 <?php echo $rows['option1']; ?>
             </div>
             <div class="card-body">
-                <input type="radio" name="quizcheck[<?php echo $rows['questionNum'];?>]" value="F">
+                <input type="radio" name="quizcheck[<?php echo $rows['questionNum'];?>]" value="F">False
                 <?php echo $rows['option2']; ?>
             </div>
         <?php }else if($rows['Type']=="short"){ ?>

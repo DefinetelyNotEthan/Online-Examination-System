@@ -22,24 +22,13 @@
 <!-- Left Sidebar -->
 <div class ="sidenav">
 	<a href="#"><img src="polyuLogo.png" alt= "polyulogo" class="rounded-circle" id="polyulogo"> </a>
-  <a class = "sideMenu" href="Dashboard.php">Dashboard</a>
-	  	<a class = "sideMenu" href="Student-take-exam.php">Take Exam</a>
- 		<a class="sideMenu" href="Student-view-result.php">View Results</a>
+	    <a class = "sideMenu" href="Dashboard.php">Dashboard</a>
+	    <a class = "sideMenu" href="Student-take-exam.php">Take Exam</a>
+ 		<a class="active sideMenu" href="Student-view-result.php">View Results</a>
  </div>
 
- <div class = "content">
-	<div class="contbox">
-		<h2><b>Congrats!</b></h2>
-        <?php
-        
-        if(isset($_POST['submit'])){
-            echo "Your answer has been submitted";
-            
-        }
 
-        ?>
-    </div>
-</div>
-
+ 
+<?php include 'footer.php';?>
 </body> 
 </html>
