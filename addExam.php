@@ -19,6 +19,21 @@
 	if (!$del1) {
     die('Invalid query: ' . mysqli_error($connect));}
 
+    $sql3 = "DELETE FROM question WHERE examID = $examID";
+	$del3 = mysqli_query($connect, $sql3);
+	if (!$del3) {
+    die('Invalid query: ' . mysqli_error($connect));}
+
+    $sql4 = "DELETE FROM answer WHERE examID = $examID";
+	$del4 = mysqli_query($connect, $sql4);
+	if (!$del4) {
+    die('Invalid query: ' . mysqli_error($connect));}
+
+    $sql5 = "DELETE FROM grade WHERE examID = $examID";
+	$del5 = mysqli_query($connect, $sql5);
+	if (!$del5) {
+    die('Invalid query: ' . mysqli_error($connect));}
+
 	$sql2 = "INSERT INTO exam (userID, examID, examName, examDate, startTime, endTime, checked) VALUES ('$ID', '$examID', '$examName', '$examDate','$startTime','$endTime', 'NO')";
 	$add1 = mysqli_query($connect, $sql2);
 	if (!$add1) {

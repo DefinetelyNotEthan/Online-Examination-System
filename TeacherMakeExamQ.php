@@ -89,7 +89,7 @@
 				</select>
 			</div>
 			<br>
-			<input type="button" name="nextNumber" type="button" class="btn btn-info btn-large" onclick="errorCheck()" value ="Next Number" >
+			<input type="button" name="nextNumber" type="button" class="btn btn-info btn-large" onclick="errorCheck()" value ="Add Question" >
 			<a href="Dashboard.php" class="btn btn-success btn-large " style="margin-left:10px;" role="button">Complete Exam</a>
 			</form>
 			<form action = "prevQuestion.php" method = "post" id="prevQForm" style="margin-top: 10px;">

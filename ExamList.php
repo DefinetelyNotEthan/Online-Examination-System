@@ -56,10 +56,9 @@
 
             else { 
             print "<table class = \"examListTbl\" border='1' style =\"width: 100%;\">";
-            print "<tr><th>Exam ID</th><th>Exam Name</th><th>Exam Date</th><th>Start Time</th><th>End Time</th><th>Total Question</th></tr>";
+            print "<tr><th>Exam ID</th><th>Exam Name</th><th>Exam Date</th><th>Start Time</th><th>End Time</th></tr>";
             while( $row = mysqli_fetch_assoc($result) ){
-              print "<tr><td>". $row['examID']. "</td><td>" .$row['examName']. "</td><td>" . $row['examDate'] . "</td><td>" . $row['startTime']. "</td><td>" .$row['endTime']. "</td><td>" .
-              $row['qNum']."</td></tr>";    
+              print "<tr><td>". $row['examID']. "</td><td>" .$row['examName']. "</td><td>" . $row['examDate'] . "</td><td>" . $row['startTime']. "</td><td>" .$row['endTime']."</td></tr>";    
             }
             print "</table>";       
           }
@@ -77,7 +76,7 @@
              <input type="button" name="nextNumber" type="button" class="btn btn-info btn-small" onclick="showQ()" value ="Choose this Exam" >
         <br>
       <div id="qList"></div><br><br>
-      <input type="button" name="nextNumber" type="button" class="btn btn-info btn-small btn-danger" onclick="submit()" value ="Delete this exam" >
+      <input type="button" name="nextNumber" type="button" id = "deleteB" class="btn btn-info btn-small btn-danger" onclick="submit()" value ="Delete this exam" >
       </form>
     </div>
     </div>
@@ -133,7 +132,7 @@
                    <option value="D">D</option>
                 </select>
               </div>
-              <input type="button" name="nextNumber" type="button" class="btn btn-info btn-large" onclick="errorCheck()" value ="Edit or Add" >
+              <br><input type="button" name="nextNumber" type="button" id = "eoa" class="btn btn-info btn-large" onclick="errorCheck()" value ="Edit or Add" >
             </form>
           </div>
     </div>

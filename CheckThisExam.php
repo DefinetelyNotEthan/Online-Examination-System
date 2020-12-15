@@ -77,14 +77,15 @@
             while( $row3 = mysqli_fetch_assoc($result3) ){
               print "<tr><td>". $row3['userID']. "</td><td>" . $row3['firstName'] . " " . $row3['lastName']. "</td><td>" .$row3['grade']."</td><td>" .$row3['submitTime']. "</td></tr>";    
             }
-            print "</table>";       
-          }
-
+            print "</table>";
+            
           $sql5 = "UPDATE exam SET checked = 'YES' WHERE examID = $examID;";
           $add5 = mysqli_query($connect, $sql5);
            if (!$add5) {
            die('Invalid query: ' . mysqli_error($connect));
+          }   
           }
+
 
             mysqli_close($connect);   // close the connection
 ?>

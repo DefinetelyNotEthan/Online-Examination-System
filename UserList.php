@@ -1,7 +1,7 @@
 
    <?php
         include "connect_database.php";
-        $userQuery= "SELECT * FROM users";
+        $userQuery= "SELECT * FROM users ORDER BY userID";
 
             $result = mysqli_query($connect, $userQuery);
               if (!$result) {

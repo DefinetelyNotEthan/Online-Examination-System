@@ -6,6 +6,8 @@ function showExam() {
 		myRequest.onload = function(){
 			document.getElementById("examID_select").innerHTML = this.responseText;
 		}
+    document.getElementById("deleteB").disabled = true;
+    document.getElementById("eoa").disabled = true;
 }
 
 function showQ() {
@@ -21,6 +23,8 @@ function showQ() {
 		myRequest.onload = function(){
 			document.getElementById("qList").innerHTML = this.responseText;
 		}		
+    document.getElementById("deleteB").disabled = false;
+    document.getElementById("eoa").disabled = false;
 	}
 
 }
