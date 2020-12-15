@@ -4,8 +4,7 @@ function submitExamID() {
 
     if(ExamID==""){
         alert("PLEASE INPUT A VALID EXAM ID");
-        return false;
     }else{
-        return true;
+        document.getElementById("takeExam").submit();
     }
 }

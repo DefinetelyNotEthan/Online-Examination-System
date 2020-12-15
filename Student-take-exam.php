@@ -102,13 +102,12 @@
 	}
 	 ?>
 
-<form action="Student-take-exam-validation.php" method="post" style=" bottom:15px;">
+<form action="Student-take-exam-validation.php" method="POST" style=" bottom:15px;" id ="takeExam">
 			<div>
 				<br>
 				<h1 class="thicker">Please enter the exam ID you want to take: </h1>
 				<INPUT TYPE = "Text"  NAME = "examID" placeholder="ExamID" id="ExamID" style="position:relative; bottom:15px;">
-				<button type="submit" class="btn btn-info btn-large" style="position:relative;bottom:17px;"
-				onclick="return submitExamID()" >Start The Exam</button>
+				<input type="button" class="btn btn-info btn-large" style="position:relative;bottom:17px;" value="Start The Exam" onclick="submitExamID()">
 			</div>
 			</form>	
 	</div>

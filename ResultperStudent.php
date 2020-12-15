@@ -4,7 +4,8 @@
     $userID = $_GET['q'];
     $examID = 	$_SESSION['examID'];
 
-  	$displayQuery= "SELECT * FROM ((grade INNER JOIN answer ON grade.userID = answer.userID AND grade.examID = answer.examID) INNER JOIN question ON answer.examID = question.examID AND answer.questionNum = question.questionNum) WHERE answer.userID = $userID AND question.examID = $examID GROUP BY answer.questionNum";
+    $intuserID = intval($userID);
+  	$displayQuery= "SELECT * FROM answer, question WHERE answer.examID = question.examID AND answer.questionNum = question.questionNum AND answer.examID=$examID AND answer.userID =  $userID";
   		$result3 = mysqli_query($connect, $displayQuery);
               if (!$result3) {
             die('Invalid query: ' . mysqli_error($connect));

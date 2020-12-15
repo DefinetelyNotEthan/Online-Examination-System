@@ -41,17 +41,17 @@ $examID = $_POST['examID'];
 
        $userQuery= "SELECT *
 		     FROM exam 
-             WHERE examID = '$examID'";
+             WHERE examID = $examID";
              $result = mysqli_query($connect,$userQuery);
  if($result){
         if (mysqli_num_rows($result)===1){ 
 
-             $userQuery= "SELECT *
+             $userQuery1= "SELECT *
 		     FROM grade 
-             WHERE examID = '$examID' AND userID = '$userID'";
-             $result = mysqli_query($connect,$userQuery);
-             if($result){
-             if (mysqli_num_rows($result)===1){ ?>
+             WHERE examID = $examID AND userID = $userID";
+             $result1 = mysqli_query($connect,$userQuery1);
+             if($result1){
+             if (mysqli_num_rows($result1)===1){ ?>
                      <h1 class="thicker">You have already taken this exam!</h1> 
                      <h1 class="thicker">Please check if you have other exams!</h1> 
                      <button onclick="history.go(-1);" class="btn btn-info btn-large">Back </button>
@@ -63,11 +63,11 @@ $examID = $_POST['examID'];
                     }
              }
             
-       }else { ?>
-        <h1 class="thicker">Sorry, the exam ID you entered is invalid!</h1> 
-        <h1 class="thicker">Please input a valid exam ID!</h1> 
-        <button onclick="history.go(-1);" class="btn btn-info btn-large">Back </button>
-           <?php  }
+       }else { 
+        print "<h1 class=\"thicker\">Sorry, the exam ID you entered is invalid!</h1>";
+        print "<h1 class=\"thicker\">Please input a valid exam ID!</h1> ";
+        print "<button onclick=\"history.go(-1);\" class=\"btn btn-info btn-large\">Back </button>";
+           }
 }
 ?>
 	</div>	

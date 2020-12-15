@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>HTML Page</title>
+	<title>User List</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -44,9 +44,36 @@
         <div id="sList"></div><br><br>
 
             <input type="button" type="button" class="btn btn-danger btn-small" onclick="deleteST()" value ="Delete this user" >
-            <input type="button" type="button" class="btn btn-info btn-small" onclick="addST()" value ="Add or Update Record" >
-      </form>
-      <div id="qList"></div><br><br>
+            <div id="qList"></div><br><br>
+        </form>   
+     <form id = "modifyUser" action="modifyUser.php" method="post">
+      <h4><b>Add or Update Records</b></h4>
+      <table width = "80%">
+                <tr><td><label for ="UID">*User ID:</label></td>
+                 <td><input type="text" id="UID" name="UID" style="width: 50vw;"/></td></tr>
+                 <tr><td> <label for ="FN">*First Name:</label></td>
+                 <td>   <input type="text" class="textboxSignUp" id="FN" name="FN"style="width: 50vw;" /></td></tr>
+                 <tr><td> <label for ="LN">*Last Name:</label></td>
+                 <td>   <input type="text" class="textboxSignUp" id="LN" name="LN"style="width: 50vw;"/></td></tr>
+                 <tr><td> <label for ="NN">Nick Name:</label></td>
+                 <td>   <input type="text" class="textboxSignUp" id="NN" name="NN"style="width: 50vw;"/></td></tr>
+                 <tr><td> <label for ="EM">*Email:</label></td>
+                 <td>   <input type="text" class="textboxSignUp" id="EM" name="EM"style="width: 50vw;"/></td></tr>
+                 <tr><td> <label for ="PW">*Password:</label></td>
+                 <td>   <input type="text" class="textboxSignUp" id="PW" name="PW"style="width: 50vw;"/></td></tr>
+                 <tr><td> <label for ="COU">Course:</label></td>
+                 <td>   <input type="text" placeholder="Course (important for teacher)" class="textboxSignUp" id="COU" name="COU" style="width: 50vw;"/></td></tr>
+                 <tr><td> <label for ="GEN">Gender:</label></td>
+                  <td>   <select name="GEN" id="GEN">
+                    <option value="M">M</option>
+                  <option value="F">F</option></td></tr>
+                 <tr><td> <label for ="BD">Birthday:</label></td>
+                 <td>   <input type="date" placeholder="Birthday (important for student)" class="textboxSignUp" id="BD" name="BD" style="width: 200px;"/></td></tr>
+              </table>
+              <br>
+       <input type="button" type="button" class="btn btn-info btn-small" onclick="addST()" value ="Add or Update Record" >
+     </form>
+       
     </div>
   </div>
 

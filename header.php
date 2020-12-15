@@ -31,7 +31,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['firstName']) && isset($_SESSI
 	    $row = mysqli_fetch_assoc($result);
 	    $imageURL = 'uploads/'.$row["profilepic"];
 	    ?>
-		<img src="<?php echo $imageURL; ?>" alt="Avatar" class="rounded-circle" alt="Cinque Terre" height ="40px" id ='profileIMG'>
+		<img src="<?php echo $imageURL; ?>" alt="Avatar" class="rounded-circle" alt="Cinque Terre" height = "40px" width ="40px" Style ="object-fit: cover;" id ='profileIMG'>
 				  </a>
 
 				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
