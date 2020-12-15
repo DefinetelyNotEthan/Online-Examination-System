@@ -20,6 +20,8 @@ if (isset($_POST['loginID']) && isset($_POST['FN']) && isset($_POST['LN'])
     $COU = validate($_POST['COU']);
     $GEN = validate($_POST['GEN']);
     $BD = validate($_POST['BD']);
+    $PP = "default.png";
+
     if($loginID>=10000 && $loginID<60000){
         $role = "student"; 
     }else if($loginID>=60000 && $loginID<90000){
@@ -60,8 +62,8 @@ if (isset($_POST['loginID']) && isset($_POST['FN']) && isset($_POST['LN'])
         exit();
     }else{
         $sql2 = "INSERT INTO users(userID, roles, firstName, lastName, password,
-                 nickname, email, gender, birthday, course) 
-                 VALUES('$loginID','$role','$FN','$LN','$PW','$NN','$EM',
+                 nickname, email,profilepic, gender, birthday, course) 
+                 VALUES('$loginID','$role','$FN','$LN','$PW','$NN','$EM', '$PP',
                  '$GEN','$BD','$COU')";
                  $result2 = mysqli_query($connect,$sql2); 
                  if($result2){
