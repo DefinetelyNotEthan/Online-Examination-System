@@ -19,10 +19,6 @@ function errorCheck()
 				{ alert("The Deadline is empty")}
 			else if(document.getElementById("endTime").value <document.getElementById("startTime").value )
 				{ alert("The deadline must be after the starting time")}
-			else if(document.getElementById("numOfQuestion").value == "")
-				{ alert("The Number of Question is empty")}
-			else if(document.getElementById("numOfQuestion").value < 1)
-				{ alert("Number of question must be larger than 0")}
 			else{
 				errorflag = false;}
 		

@@ -67,10 +67,6 @@
 					    <td>Ending Time:</td>
 					    <td><input type="time" id="endTime" name="endTime"></td>
 					  </tr>
-					  <tr>
-					    <td>Number of Questions:</td>
-					    <td> <input type="number" id="numOfQuestion" name="numOfQuestion"></td>
-					  </tr>
 			</table>
 			<div>
 				<br>

@@ -59,16 +59,15 @@ $createExamTable = "CREATE TABLE exam (
  	examDate varchar(64) NOT NULL,
 	startTime varchar(64) NOT NULL,
   	endTime varchar(64) NOT NULL,
-  	qNum int NOT NULL,
   	checked varchar(10),
   	CONSTRAINT CompKey_userID_examID PRIMARY KEY (userID, examID),
   	FOREIGN KEY (userID)
   		REFERENCES users(userID)
  ) ENGINE=MyISAM  DEFAULT CHARSET='latin1'";
 
-$addExamRecords ="REPLACE INTO exam (userID, examID, examName, examDate, startTime, endTime, qNum, checked) VALUES
-(67890, '151220201001', 'EIE 1001 Midterm', '2020-12-15', '12:00:00', '13:00:00','10','NO'),
-(67890, '151220201002', 'EIE 1002 Midterm', '2020-12-13', '12:00:00', '13:00:00','10','NO');";
+$addExamRecords ="REPLACE INTO exam (userID, examID, examName, examDate, startTime, endTime, checked) VALUES
+(67890, '151220201001', 'EIE 1001 Midterm', '2020-12-15', '12:00:00', '13:00:00','NO'),
+(67890, '151220201002', 'EIE 1002 Midterm', '2020-12-13', '12:00:00', '13:00:00','NO');";
 
 $dropQuestionTable = "DROP TABLE IF EXISTS question";
 
@@ -97,8 +96,8 @@ $addQuestionRecords ="REPLACE INTO question (questionNum, examID, Type, question
 (6, '151220201001', 'Multiple Choice', '10+20', 'C', '10','10','20','30','40'),
 (7, '151220201001', 'Multiple Choice', '10+30', 'D', '10','10','20','30','40'),
 (8, '151220201001', 'Multiple Choice', '20+20', 'D', '10','10','20','30','40'),
-(9, '151220201001', 'T/F', 'Eddie is handsome?', 'T', '10','true','false','',''),
-(10, '151220201001', 'T/F', 'Eddie is not handsome?', 'F', '10','true','false','',''),
+(9, '151220201001', 'T/F', 'Eddie is handsome?', 'T', '10','','','',''),
+(10, '151220201001', 'T/F', 'Eddie is not handsome?', 'F', '10','','','',''),
 (11, '151220201001', 'short', 'Who am I?', 'not Ethan', '10','','','','')
 ;";
 
