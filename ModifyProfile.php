@@ -7,6 +7,14 @@
 	$nickName = "'".$_POST["NN"]."'";
 	$email = "'".$_POST["EM"]."'";
     $password = "'".$_POST["PW"]."'";
+
+    $statusMsg = '';
+
+	$targetDir = "uploads/";
+	$fileName = basename($_FILES["file"]["name"]);
+	$targetFilePath = $targetDir . $fileName;
+	$fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
+
     $profilepic = "'".$_POST["PP"]."'";
    
 	if ($userID < 60000)
@@ -35,12 +43,31 @@
 
 	include "connect_database.php";
 
-	$query = "REPLACE INTO users (userID, roles, firstName, lastName, password, nickname, email, profilepic, gender, birthday, course) VALUES
-		($userID, $roles, $firstName, $lastName, $password, $nickName, $email,$profilepic,$gender,$birthday,$course)";
-	$result = mysqli_query($connect, $query);
-              if (!$result) {
-            die("Could not successfully run query.". mysqli_error($connect));
-            }
+	if(!empty($_FILES["file"]["name"]))
+	{
+		 $allowTypes = array('jpg','png','jpeg','gif','pdf');
+    	if(in_array($fileType, $allowTypes)){
+   			if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath))
+   			{
+					$query = "REPLACE INTO users (userID, roles, firstName, lastName, password, nickname, email, profilepic, gender, birthday, course) VALUES
+					($userID, $roles, $firstName, $lastName, $password, $nickName, $email,'".$fileName."',$gender,$birthday,$course)";
+						$result = mysqli_query($connect, $query);
+	              if (!$result) {
+	            die("Could not successfully run query.". mysqli_error($connect));
+	            }
+	        }
+	    }
+    }
+    else
+    {
+		$query = "REPLACE INTO users (userID, roles, firstName, lastName, password, nickname, email, profilepic, gender, birthday, course) VALUES
+		($userID, $roles, $firstName, $lastName, $password, $nickName, $email,'default.png',$gender,$birthday,$course)";
+		$result = mysqli_query($connect, $query);
+	              if (!$result) {
+	            die("Could not successfully run query.". mysqli_error($connect));
+	            }
+    }
+
     
     header("Location: AfterModify.php");
     

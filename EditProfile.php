@@ -54,7 +54,7 @@
     if(intval($_SESSION['userID'])<90000)
       {    ?>
           
-      <form id = "modifyUser" action="ModifyProfile.php" method="post">
+      <form id = "modifyUser" action="ModifyProfile.php" method="post" enctype="multipart/form-data">
       <h4><b>Edit Your Profile</b></h4>
       <table width = "80%">
                 <tr><td><label for ="UID">*User ID:</label></td>
@@ -71,14 +71,8 @@
                  <td>   <input type="text" class="textboxSignUp" id="PW" name="PW"style="width: 50vw;"/></td></tr>
                  <tr><td> <label for ="COU">*Course:</label></td>
                  <td>   <input type="text" placeholder="Course (important for teacher)" class="textboxSignUp" id="COU" name="COU" style="width: 50vw;"/></td></tr>
-                 <tr><td> <label for ="PP">Choose a profile pic:</label></td>
-                   <td>   <select name="PP" id="P">
-                      <option value="cerys_blundell.jpg">Pic 1</option>
-                      <option value="denzel.jpg">Pic 2</option>
-                      <option value="dulcie_luna.jpg">Pic 3</option>
-                      <option value="enrique.jpg">Pic 4</option>
-                      <option value="griffin.jpg">Pic 5</option>
-                      <option value="jasleen_wood.jpg">Pic 6</option>
+                   <tr><td> <label for ="PP">Choose a profile pic:</label></td>
+                    <td><input type="file" name="file" id = "PP"></td></tr>
                  
                  
               </table>
@@ -89,7 +83,7 @@
     <?php
     }
     else{ ?>
-        <form id = "modifyUser" action="ModifyProfile.php" method="post">
+        <form id = "modifyUser" action="ModifyProfile.php" method="post" enctype="multipart/form-data">
         <h4><b>Edit Your Profile</b></h4>
         <table width = "80%">
                   <tr><td><label>*User ID:</label></td>
@@ -105,13 +99,7 @@
                    <tr><td> <label for ="PW">*Password:</label></td>
                    <td>   <input type="text" class="textboxSignUp" id="PW" name="PW"style="width: 50vw;"/></td></tr>   
                    <tr><td> <label for ="PP">Choose a profile pic:</label></td>
-                   <td>   <select name="PP" id="P">
-                      <option value="cerys_blundell.jpg">Pic 1</option>
-                      <option value="denzel.jpg">Pic 2</option>
-                      <option value="dulcie_luna.jpg">Pic 3</option>
-                      <option value="enrique.jpg">Pic 4</option>
-                      <option value="griffin.jpg">Pic 5</option>
-                      <option value="jasleen_wood.jpg">Pic 6</option>   
+                    <td><input type="file" name="file" id = "PP"></td></tr>
                 </table>
                 <br>
          <input type="button" type="button" class="btn btn-info btn-small" onclick="addAD()" value ="Update Your Profile" >
@@ -120,7 +108,7 @@
       }
     }
     else { ?>
-        <form id = "modifyUser" action="ModifyProfile.php" method="post">
+        <form id = "modifyUser" action="ModifyProfile.php" method="post" enctype="multipart/form-data">
         <h4><b>Edit Your Profile</b></h4>
         <table width = "80%">
                   <tr><td><label for ="UID">*User ID:</label></td>
@@ -142,14 +130,8 @@
                    <tr><td> <label for ="BD">Birthday:</label></td>
                    <td>   <input type="date" placeholder="Birthday (important for student)" class="textboxSignUp" id="BD" name="BD" style="width: 200px;"/></td></tr>
                    <tr><td> <label for ="PP">Choose a profile pic:</label></td>
-                   <td>   <select name="PP" id="P">
-                      <option value="cerys_blundell.jpg">Pic 1</option>
-                      <option value="denzel.jpg">Pic 2</option>
-                      <option value="dulcie_luna.jpg">Pic 3</option>
-                      <option value="enrique.jpg">Pic 4</option>
-                      <option value="griffin.jpg">Pic 5</option>
-                      <option value="jasleen_wood.jpg">Pic 6</option>
-                </table>
+                    <td><input type="file" name="file" id = "PP"></td></tr>
+              </form>
                 <br>
          <input type="button" type="button" class="btn btn-info btn-small" onclick="addSTU()" value ="Update Your Profile" >
        </form>
