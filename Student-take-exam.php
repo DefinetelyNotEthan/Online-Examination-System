@@ -90,14 +90,14 @@
 					    <td>Ending Time:</td>
 					    <td><?php echo $row['endTime']; ?></td>
 					  </tr>
-					  <tr>
-					    <td>Number of Questions:</td>
-					    <td><?php echo $row['qNum'] ?></td>
-					  </tr>
+					  
             </table>
-
+			<br>
+			<br>
 		</div>
+		
 	</div>
+	<br>
 	<?php }
 	}
 	 ?>
@@ -109,6 +109,9 @@
 				<INPUT TYPE = "Text"  NAME = "examID" placeholder="ExamID" id="ExamID" style="position:relative; bottom:15px;">
 				<input type="button" class="btn btn-info btn-large" style="position:relative;bottom:17px;" value="Start The Exam" onclick="submitExamID()">
 			</div>
+			<br>
+			<br>
+			<br>
 			</form>	
 	</div>
 
