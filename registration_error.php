@@ -10,8 +10,8 @@
     
     <body>
         <div>
-            <h1>Sorry, there has been an error, please try again !</h1>
-            <a href="loginPage.php">Back to Login Page</a>
+            <h1 style="color:white">Sorry, there has been an error, please try again !</h1>
+            <a style="color:white" href="loginPage.php">Back to Login Page</a>
         </div>
     </body>
 
