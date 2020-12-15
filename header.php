@@ -36,7 +36,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['firstName']) && isset($_SESSI
 
 				  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 				  	<ul>
-				    	<li><a class="dropdown-item" href="#">Edit Profile</a></li>
+				    	<li><a class="dropdown-item" href="EditProfile.php">Edit Profile</a></li>
 				    	<li><a class="dropdown-item" href="logout.php">Logout</a></li>
 					</ul>
   				</div>

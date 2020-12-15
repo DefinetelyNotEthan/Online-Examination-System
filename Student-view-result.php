@@ -16,7 +16,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Francois+One&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body onload="showCheckedExam()">
 <?php include 'header.php';?>
 
 <!-- Left Sidebar -->
@@ -27,8 +27,53 @@
  		<a class="active sideMenu" href="Student-view-result.php">View Results</a>
  </div>
 
+<!-- Content -->
 
- 
-<?php include 'footer.php';?>
+<div class = "content">
+  <h1 class="thicker">Show Exams' Results</h1>
+  <div class = "QuestionBox">
+    <h3>Checked Exam List</h3>
+   <div class = "qForm">
+   <?php
+
+        include "connect_database.php";
+        $userID = $_SESSION['userID'];
+        $userQuery= "SELECT *
+		             FROM exam
+		             INNER JOIN grade
+					 ON exam.examID=grade.examID
+					 WHERE exam.checked = 'YES'AND grade.userID = $userID";
+
+            $result = mysqli_query($connect, $userQuery);
+              if (!$result) {
+            die("Could not successfully run query.");
+            }
+              if (mysqli_num_rows($result) == 0) {
+            print "You dont have any exam checked";
+            }
+
+            else { 
+            print "<table class = \"examListTbl \" border='1' style =\"width: 100%;\">";
+            print "<tr><th>Exam ID</th><th>Exam Name</th><th>Exam Date</th><th>Start Time</th><th>End Time</th><th>Total Question</th></tr>";
+            while( $row = mysqli_fetch_assoc($result) ){
+              print "<tr><td>". $row['examID']. "</td><td>" .$row['examName']. "</td><td>" . $row['examDate'] . "</td><td>" . $row['startTime']. "</td><td>" .$row['endTime']. "</td><td>" .
+              $row['qNum']."</td></tr>";    
+            }
+            print "</table>";       
+          }
+
+            mysqli_close($connect);   // close the connection
+      ?>
+    </div>
+  </div>
+  <form action="Student-view-exam-validation.php" method="POST" style=" bottom:15px;" id ="takeExam">
+			<div>
+				<br>
+				<h1 class="thicker">Please enter the exam ID and view the result: </h1>
+				<INPUT TYPE = "Text"  NAME = "examID" placeholder="ExamID" id="ExamID" style="position:relative; bottom:15px;">
+				<input type="button" class="btn btn-info btn-large" style="position:relative;bottom:17px;" value="View The Exam Result" onclick="submitExamID()">
+			</div>
+			</form>	
+			<script src="Student-takeExamValidation.js"></script>
 </body> 
 </html>
